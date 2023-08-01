@@ -1,23 +1,28 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
-
-let YellowBtn = styled.button`
-background : ${(props) => props.bg};
-color : ${(props) => (props.bg == "blue" ? "white" : "black")};
-padding 10px ;
-`;
 
 // let NewBtn = styled.button(YellowBtn) // 기존 버튼 스타일 복사 가능
 
 function Detail(props) {
+  useEffect(() => {
+    let a = setTimeout(() => {
+      setalert(false);
+    }, 2000);
+    return () => {
+      clearTimeout(a);
+    };
+  }, []);
+
   let { id } = useParams();
   let 찾은상품 = props.shoes.find(function (x) {
     return x.id == id;
   });
+  let [alert, setalert] = useState(true);
   return (
     <div className="container">
-      <YellowBtn bg="blue">버튼</YellowBtn>
-      <YellowBtn bg="orange">버튼</YellowBtn>
+      {alert == true ? (
+        <div className="alert alert-warning">2초이내 구매시 할인</div>
+      ) : null}
       <div className="row">
         <div className="col-md-6">
           <img
