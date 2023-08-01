@@ -5,6 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useState } from "react";
 import data from "./data.js";
+import { Routes, Route, Link } from "react-router-dom";
+import Detail from "./routes/detail";
 
 function App() {
   let [shoes] = useState(data);
@@ -22,21 +24,34 @@ function App() {
         </Container>
       </Navbar>
 
-      <div className="main-bg"></div>
+      <Link to="/">홈</Link>
+      <Link to="/detail">상세페이지</Link>
 
-      <div className="container">
-        <div className="row">
-          {/* <Card shoes={shoes[0]} i={1} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="main-bg"></div>
+              <div className="container">
+                <div className="row">
+                  {/* <Card shoes={shoes[0]} i={1} />
           <Card shoes={shoes[1]} i={2} />
           <Card shoes={shoes[2]} i={3} /> */}
-          {shoes.map((a, i) => {
-            return <Card shoes={shoes[i]} i={i} />;
-          })}
-        </div>
-      </div>
+                  {shoes.map((a, i) => {
+                    return <Card shoes={shoes[i]} i={i} />;
+                  })}
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
+
 function Card(props) {
   return (
     <div className="col-md-4">
