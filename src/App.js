@@ -10,7 +10,7 @@ import Detail from "./routes/Detail";
 import axios from "axios";
 
 function App() {
-  let [shoes] = useState(data);
+  let [shoes, setShoes] = useState(data);
   let navigate = useNavigate(); //페이지 이동을 도와줌
 
   return (
@@ -61,14 +61,16 @@ function App() {
                   axios
                     .get("https://codingapple1.github.io/shop/data2.json")
                     .then((결과) => {
-                      console.log(결과.data); //서버에서 온 데이터 확인 가능
+                      console.log(결과.data); // 서버에서 가져온 데이터를 보여줌
+                      let copy = [...shoes, ...결과.data];
+                      setShoes(copy);
                     })
                     .catch(() => {
                       console.log("실패함");
                     });
                 }}
               >
-                버튼
+                더보기
               </button>
             </>
           }
