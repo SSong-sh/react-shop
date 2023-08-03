@@ -7,6 +7,7 @@ import { useState } from "react";
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detail";
+import axios from "axios";
 
 function App() {
   let [shoes] = useState(data);
@@ -55,6 +56,20 @@ function App() {
                   })}
                 </div>
               </div>
+              <button
+                onClick={() => {
+                  axios
+                    .get("https://codingapple1.github.io/shop/data2.json")
+                    .then((결과) => {
+                      console.log(결과.data); //서버에서 온 데이터 확인 가능
+                    })
+                    .catch(() => {
+                      console.log("실패함");
+                    });
+                }}
+              >
+                버튼
+              </button>
             </>
           }
         />
