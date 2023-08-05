@@ -5,12 +5,17 @@ import { Nav } from "react-bootstrap";
 // let NewBtn = styled.button(YellowBtn) // 기존 버튼 스타일 복사 가능
 
 function Detail(props) {
+  let [opacity, setOpacity] = useState("");
   useEffect(() => {
     let a = setTimeout(() => {
       setalert(false);
     }, 2000);
+    setTimeout(() => {
+      setOpacity("end");
+    }, 100);
     return () => {
       clearTimeout(a);
+      setOpacity("");
     };
   }, []);
 
@@ -21,7 +26,7 @@ function Detail(props) {
   let [alert, setalert] = useState(true);
   let [탭, 탭변경] = useState(0);
   return (
-    <div className="container">
+    <div className={"container start " + opacity}>
       {alert == true ? (
         <div className="alert alert-warning">2초이내 구매시 할인</div>
       ) : null}
