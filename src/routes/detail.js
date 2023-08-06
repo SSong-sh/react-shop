@@ -27,9 +27,9 @@ function Detail(props) {
   let [탭, 탭변경] = useState(0);
   return (
     <div className={"container start " + opacity}>
-      {alert == true ? (
+      {/* {alert == true ? (
         <div className="alert alert-warning">2초이내 구매시 할인</div>
-      ) : null}
+      ) : null} */}
       <div className="row">
         <div className="col-md-6">
           <img
