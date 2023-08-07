@@ -1,10 +1,12 @@
 .start {
   opacity: 0;
+  color: gray;
 }
 
-.end{
+.end {
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
+  color: black;
 }
 
 .main-bg {
