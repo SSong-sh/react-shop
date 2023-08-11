@@ -1,11 +1,17 @@
 import { Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeName } from "./../store";
 
 function Cart() {
+  let state = useSelector((state) => state); //Redux store 가져와줌
   let cartItems = useSelector((state) => state.cart); //Redux store 가져와줌
+  let dispatch = useDispatch(); //store.js로 요청을 보내주는 함수
+
   console.log(cartItems);
+
   return (
     <div>
+      {state.user}의 장바구니
       <Table>
         <thead>
           <tr>
@@ -21,7 +27,15 @@ function Cart() {
               <td>{index + 1}</td>
               <td>{item.name}</td>
               <td>{item.count}</td>
-              <td>변경 버튼</td>{" "}
+              <td>
+                <button
+                  onClick={() => {
+                    dispatch(changeName());
+                  }}
+                >
+                  +
+                </button>
+              </td>
               {/* 여기에 변경 버튼을 추가하거나 원하는 내용을 삽입하세요 */}
             </tr>
           ))}
