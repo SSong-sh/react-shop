@@ -2,11 +2,10 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 let user = createSlice({
   name: "user",
-  initialState: "kim",
+  initialState: { name: "kim", age: 20 },
   reducers: {
     changeName(state) {
-      //기존 state를 뜻함 (kim)
-      return "john kim";
+      return { name: "park", age: 20 };
     },
   },
 });
