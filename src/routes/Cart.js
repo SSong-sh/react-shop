@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { changeName } from "./../store";
+import { changeName, increase } from "./../store";
 
 function Cart() {
   let state = useSelector((state) => state); //Redux store 가져와줌
