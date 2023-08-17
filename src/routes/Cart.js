@@ -16,7 +16,7 @@ function Cart() {
       </h6>
       <button
         onClick={() => {
-          dispatch(increase());
+          dispatch(increase(100));
         }}
       >
         버튼

@@ -4,8 +4,8 @@ let user = createSlice({
   name: "user",
   initialState: { name: "kim", age: 20 },
   reducers: {
-    increase(state) {
-      state.age += 1;
+    increase(state, a) {
+      state.age += a.payload;
     },
     changeName(state) {
       state.name = "park";
