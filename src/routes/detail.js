@@ -46,7 +46,7 @@ function Detail(props) {
           <h4 className="pt-5">{찾은상품.title}</h4>
           <p>{찾은상품.content}</p>
           <p>{찾은상품.price}원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button className="btn btn-danger" onClick={()}>주문하기</button>
         </div>
       </div>
       <Nav variant="tabs" defaultActiveKey="link0">

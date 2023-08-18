@@ -14,7 +14,10 @@ let cart = createSlice({
   ],
   reducers: {
     addCount(state, action) {
-      state[action.payload].count++;
+      let 번호 = state.findIndex((a) => {
+        return a.id === action.payload;
+      });
+      state[번호].count++;
     },
   },
 });
